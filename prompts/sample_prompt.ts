@@ -1,4 +1,5 @@
 export type checkType = {
+    id: string;
     label: string;
     prompt: string;
 }
@@ -18,8 +19,8 @@ const prompt2 = "I will give you a user comment. Return the answer in Json forma
 
 export function allPrompts () {
     const prompt: checksPromptType = [
-        {label: "first_task", prompt: prompt1},
-        {label: "second_task", prompt: prompt2}
+        {id: "first_task", label: "First Analysis", prompt: prompt1},
+        {id: "second_task", label: "Second Analysis", prompt: prompt2}
     ]
 
     return prompt;
@@ -32,4 +33,8 @@ export function checksCount() {
 
 export function getCheckLabel(part: number) {
     return allPrompts()[part]['label'];
+}
+
+export function getCheckId(part: number) {
+    return allPrompts()[part]['id'];
 }

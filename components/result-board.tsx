@@ -45,7 +45,7 @@ const ResultBoard: React.FC<any> = ({analysisResult}) => {
             {analysisResult?.first_task ?
                 <Card className="my-6">
                     <CardHeader>
-                        <CardTitle>Overall Assessments</CardTitle>
+                        <CardTitle>{analysisResult?.first_task?.label!}</CardTitle>
                     </CardHeader>
                         <CardContent>
                             <div className="flex flex-row justify-between">
@@ -87,7 +87,7 @@ const ResultBoard: React.FC<any> = ({analysisResult}) => {
             {analysisResult?.second_task ?
                 <Card className="mt-6 mb-6">
                     <CardHeader>
-                        <CardTitle>Other Assessments</CardTitle>
+                        <CardTitle>{analysisResult?.second_task?.label!}</CardTitle>
                     </CardHeader>
                         <CardContent>
                             {analysisResult?.second_task?.comment_tone ?

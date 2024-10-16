@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/analyze-button"
 import { Textarea } from "@/components/ui/input-textarea"
 import AnimatedSpin from "@/components/ui/animated-spin"
 
-import { checksCount, getCheckLabel } from '@/prompts/sample_prompt';
+import { checksCount, getCheckLabel, getCheckId } from '@/prompts/sample_prompt';
 import { getGroupCheckResponse } from '@/server_actions/analysis-actions';
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -43,10 +43,10 @@ const SubmitBox: React.FC<any> = ({setAnalysisResult}) => {
             setCurrentGroupCheck(getCheckLabel(part));
             const groupResult = await getGroupCheckResponse(userCode, part);
             const parsedDataScores = JSON.parse(groupResult);
-
+            const parsedDataScoresWithLabel = {...parsedDataScores, label:getCheckLabel(part)}
             setAnalysisResult((prevState:any)  => ({
                 ...prevState,
-                [getCheckLabel(part)]:parsedDataScores
+                [getCheckId(part)]:parsedDataScoresWithLabel
             }));
         }
 

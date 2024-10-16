@@ -2,11 +2,13 @@ export function sampleResult () {
     return {
         "first_task": {
             "is_comment_positive": "yes",
-            "satisfaction_rate": 4
+            "satisfaction_rate": 4,
+            "label": "First Analysis"
         },
         "second_task": {
             "comment_tone": "annoyed",
-            "suggestions": "Increase customization options and vary the output to reduce repetitiveness."
+            "suggestions": "increase customization options and reduce repetitive outputs",
+            "label": "Second Analysis"
         }
     }
 }
