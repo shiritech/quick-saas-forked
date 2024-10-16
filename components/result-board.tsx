@@ -48,23 +48,37 @@ const ResultBoard: React.FC<any> = ({analysisResult}) => {
                         <CardTitle>Overall Assessments</CardTitle>
                     </CardHeader>
                         <CardContent>
-                            {analysisResult?.first_task?.is_comment_positive ?
-                                <div className="flex flex-row gap-4">
-                                    <p>{analysisResult?.first_task?.is_comment_positive === 'yes' ? (<CheckCheck />) : (<CircleX />) }</p>
-                                    <p>The comment is {analysisResult?.first_task?.is_comment_positive === 'yes' ? 'posivitve' : 'negative' }</p>
-                                </div>
-                            :
-                                ''
-                            }
+                            <div className="flex flex-row justify-between">
+                                <div>
+                                {analysisResult?.first_task?.is_comment_positive ?
+                                    <div className="flex flex-row gap-4">
+                                        <p>{analysisResult?.first_task?.is_comment_positive === 'yes' ? (<CheckCheck />) : (<CircleX />) }</p>
+                                        <p>The comment is {analysisResult?.first_task?.is_comment_positive === 'yes' ? 'posivitve' : 'negative' }</p>
+                                    </div>
+                                :
+                                    ''
+                                }
 
-                            {analysisResult?.first_task?.satisfaction_rate ?
-                                <div className="flex flex-row gap-4">
-                                    <p><Award /></p>
-                                    <p>The given rate is {analysisResult?.first_task?.satisfaction_rate} out of 5</p>
+                                {analysisResult?.first_task?.satisfaction_rate ?
+                                    <div className="flex flex-row gap-4">
+                                        <p><Award /></p>
+                                        <p>The given rate is {analysisResult?.first_task?.satisfaction_rate} out of 5</p>
+                                    </div>
+                                :
+                                    ''
+                                }
                                 </div>
-                            :
-                                ''
-                            }
+                                <div>
+                                    {analysisResult?.first_task?.satisfaction_rate ?
+                                    <div className="w-[180px]">
+                                        <DonutChart value={analysisResult?.first_task?.satisfaction_rate*2} label={'Satisfaction Rate'}/>
+                                    </div>
+                                :
+                                    ''
+                                    }
+                                </div>
+                            </div>
+
                         </CardContent> 
                 </Card>
                 :
