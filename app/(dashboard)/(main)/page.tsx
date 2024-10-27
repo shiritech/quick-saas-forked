@@ -16,7 +16,7 @@ const Dashboard = () => {
     return (
         <div className="flex flex-col item-center">
             
-            <h1 className="mb-4 text-center mt-12 text-2xl leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">Check & Improve Your Code <b>Fast!</b></h1>
+            <h1 className="mb-4 text-center mt-12 text-2xl leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">Check & Improve Your Code <b>Fast and Easy!</b></h1>
 
             <div className="mb-8 text-center text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
 
