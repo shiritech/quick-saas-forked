@@ -42,7 +42,45 @@ const ResultBoard: React.FC<any> = ({analysisResult}) => {
 
     return (
         <div>
-            {analysisResult?.first_task ?
+            {analysisResult && Object.entries(analysisResult).map(([keyGroupCheck]) => (
+                <Card key={keyGroupCheck} className="my-6">
+                    <CardHeader>
+                        <CardTitle>{analysisResult[keyGroupCheck]['label']}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        {Object.entries(analysisResult[keyGroupCheck]).map(([keyCheck]) => (
+                            <div key={keyCheck}>
+                                {keyCheck != 'label' &&
+                                <div className="shadow-md p-4 m-2 flex flex-row justify-between">
+                                    <div>
+                                        <div className="bg-slate-300 p-2 m-2 rounded-md">
+                                            {keyCheck}
+                                        </div>
+                                        <div className="font-bold">
+                                            {analysisResult[keyGroupCheck][keyCheck]['general analysis']}
+                                        </div>
+                                        <div className="bg-slate-200 p-2 m-2">
+                                            {analysisResult[keyGroupCheck][keyCheck]['suggestion1']}
+                                        </div>
+                                        <div className="bg-slate-200 p-2 m-2">
+                                            {analysisResult[keyGroupCheck][keyCheck]['suggestion2']}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className="w-[180px]">
+                                            <DonutChart value={Math.round(analysisResult[keyGroupCheck][keyCheck]['score']*10/3)} label={''}/>
+                                        </div>
+                                    </div>
+                                </div>
+                                }   
+                            </div>
+                        ))}
+                    </CardContent>
+                </Card>
+            ))}
+
+
+            {/* {analysisResult?.first_task ?
                 <Card className="my-6">
                     <CardHeader>
                         <CardTitle>{analysisResult?.first_task?.label!}</CardTitle>
@@ -113,7 +151,7 @@ const ResultBoard: React.FC<any> = ({analysisResult}) => {
                 </Card>
                 :
                 ''
-            }
+            } */}
         </div>
     )
 }

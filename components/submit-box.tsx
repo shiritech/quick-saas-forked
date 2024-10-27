@@ -57,7 +57,7 @@ const SubmitBox: React.FC<any> = ({setAnalysisResult}) => {
         <div className="grid w-full gap-2">
             <Textarea 
                 className="resize-none" 
-                placeholder="Enter your (...)" 
+                placeholder="Enter your code..." 
                 value={userCode}
                 onChange={(e) => setUserCode(e.target.value)}
                 onFocus={() => setIsInputFocused(true)}
